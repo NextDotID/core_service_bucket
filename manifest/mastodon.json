@@ -1,0 +1,29 @@
+{
+    "version": "4.1.1",
+    "icon": "https://joinmastodon.org/logos/logo-purple.svg",
+    "description": "Self-hosted mastodon instance, powered by Bitnami.",
+    "homepage": "https://joinmastodon.org/",
+    "license": "AGPL-3.0-or-later",
+    "compatibility": {
+        "minimum": "1.1.0",
+        "compatible": "1.2.0"
+    },
+    "permissions": [
+        "write_local_storage",
+        "subdomain",
+        "web"
+    ],
+    "architecture": {
+        "amd64": {
+            "url": "https://github.com/nextdotid/core_service_bucket/raw/main/bucket/mastodon/amd64/docker-compose.yml",
+            "hash": "abcdef1234567890"
+        },
+        "arm64": {
+            "url": "https://github.com/nextdotid/core_service_bucket/raw/main/bucket/mastodon/arm64/docker-compose.yml",
+            "hash": "abcdef1234567890"
+        }
+    },
+    "checkver": {
+        "url": "https://hub.docker.com/r/bitnami/mastodon/tags"
+    }
+}
