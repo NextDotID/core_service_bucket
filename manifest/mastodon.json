@@ -15,12 +15,12 @@
     ],
     "architecture": {
         "amd64": {
-            "url": "https://github.com/nextdotid/core_service_bucket/raw/main/bucket/mastodon/amd64/docker-compose.yml",
-            "hash": "abcdef1234567890"
+            "url": "https://github.com/nextdotid/core_service_bucket/raw/74e6940ba72c55d5db94ff0c907d53837947cd28/bucket/mastodon/amd64/docker-compose.yml",
+            "hash": "15DF3857FFF2440C748A9A471B4098907C819A42A01FC30872FB7E6848307B3B"
         },
         "arm64": {
-            "url": "https://github.com/nextdotid/core_service_bucket/raw/main/bucket/mastodon/arm64/docker-compose.yml",
-            "hash": "abcdef1234567890"
+            "url": "https://github.com/nextdotid/core_service_bucket/raw/74e6940ba72c55d5db94ff0c907d53837947cd28/bucket/mastodon/arm64/docker-compose.yml",
+            "hash": "15DF3857FFF2440C748A9A471B4098907C819A42A01FC30872FB7E6848307B3B"
         }
     },
     "checkver": {
