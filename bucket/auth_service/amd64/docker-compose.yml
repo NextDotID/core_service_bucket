@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  auth_service:
+    image: hmqgg/auth-server
+    restart: unless-stopped
+    environment:
+      - AVATARS__1__AVATAR={{INTERNAL:SUBKEY_AVATAR}}
+      - AVATARS__1__SUBKEY__PRIVATEKEY={{INTERNAL:SUBKEY_PRIVATE}}
+      - AVATARS__1__SUBKEY__CERTIFICATIONSIGNATURE={{INTERNAL:SUBKEY_SIGNATURE:BASE58}}
+      - PROOF__ENDPOINT={{PROMPT:PROOF_ENDPOINT}}
+    networks:
+      - core_service
+    labels:
+      - "traefik.http.routers.{{INTERNAL:SERVICE}}-router.rule=Host(`{{INTERNAL:SERVICE}}.{{INTERNAL:HOST_DOMAIN}}`)"
+      - "traefik.http.routers.{{INTERNAL:SERVICE}}-router.entrypoints=websecure"
+      - "traefik.http.routers.{{INTERNAL:SERVICE}}-router.service={{INTERNAL:SERVICE}}-service"
+      - "traefik.http.routers.{{INTERNAL:SERVICE}}-router.tls.certresolver=leresolver"
+      - "traefik.http.services.{{INTERNAL:SERVICE}}-service.loadbalancer.server.port=80"
+
+networks:
+  core_service:
+    external: true
