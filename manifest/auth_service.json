@@ -1,0 +1,23 @@
+{
+    "version": "1.0.0",
+    "icon": "https://docs.next.id/img/nextid-logo.svg",
+    "description": "Self-hosted Next.ID Authentication & Authorization service.",
+    "homepage": "https://docs.next.id/",
+    "license": "MIT",
+    "compatibility": {
+        "minimum": "1.1.0",
+        "compatible": "1.2.0"
+    },
+    "permissions": [
+        "subdomain",
+        "web"
+    ],
+    "architecture": {
+        "amd64": {
+            "url": "https://github.com/nextdotid/core_service_bucket/raw/942936077aec2576888d9ae07bb7a2d314d81159/bucket/auth_service/amd64/docker-compose.yml"
+        }
+    },
+    "checkver": {
+        "url": "https://hub.docker.com/r/hmqgg/auth_server/tags"
+    }
+}
