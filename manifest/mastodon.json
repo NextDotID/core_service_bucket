@@ -1,4 +1,5 @@
 {
+    "title": "Mastodon",
     "version": "4.1.1",
     "icon": "https://joinmastodon.org/logos/logo-purple.svg",
     "description": "Self-hosted mastodon instance, powered by Bitnami.",
