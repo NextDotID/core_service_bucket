@@ -1,4 +1,5 @@
 {
+    "title": "Auth Service",
     "version": "1.0.0",
     "icon": "https://docs.next.id/img/nextid-logo.svg",
     "description": "Self-hosted Next.ID Authentication & Authorization service.",
