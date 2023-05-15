@@ -18,9 +18,10 @@ jobs:
         run: |
           $dictionary = [ordered]@{}
           $manifests = Get-ChildItem -File ./manifest/*.json |
-            % { Get-Content -Raw $_ | ConvertFrom-Json | Add-Member -NotePropertyName filename -NotePropertyValue $_.BaseName -PassThru } |
-            % { $latest = $_.versions | Sort-Object -Descending -Property version | Select-Object -First 1; 
-              $_ | Add-Member -NotePropertyName latest -NotePropertyValue $latest -PassThru | Select-Object -Property * -ExcludeProperty versions }
+              % { Get-Content -Raw $_ | ConvertFrom-Json | Add-Member -NotePropertyName filename -NotePropertyValue $_.BaseName -PassThru } |
+                  % { $latest = $_.versions | Sort-Object -Descending -Property version | Select-Object -First 1 | Select-Object -Property * -ExcludeProperty arch | 
+                        Add-Member -NotePropertyName manifest -NotePropertyValue "https://github.com/${{github.repository}}/raw/${{github.ref_name}}/manifest/$($_.filename).json" -PassThru;
+                      $_ | Add-Member -NotePropertyName latest -NotePropertyValue $latest -PassThru | Select-Object -Property * -ExcludeProperty versions }
           $manifests | % { $dictionary[$_.filename] = $_ | Select-Object -Property * -ExcludeProperty filename }
           $dictionary | ConvertTo-Json -Compress -Depth 10 | Out-File -FilePath ./metadata.json
 
