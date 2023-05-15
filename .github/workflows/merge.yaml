@@ -26,4 +26,4 @@ jobs:
         name: push metadata changes
         with:
           message: 'chore: update metadata'
-          add: 'meatdata.json'
+          add: 'metadata.json'
