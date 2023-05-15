@@ -10,6 +10,7 @@ jobs:
     if: github.repository_owner == 'NextDotId'
     steps:
       - uses: actions/checkout@v3
+
       - name: Merge
         shell: pwsh
         run: |
@@ -20,3 +21,9 @@ jobs:
               $_ | Add-Member -NotePropertyName latest -NotePropertyValue $latest -PassThru | Select-Object -Property * -ExcludeProperty versions }
           $manifests | % { $dictionary[$_.filename] = $_ | Select-Object -Property * -ExcludeProperty filename }
           $dictionary | ConvertTo-Json -Depth 10 | Out-File -FilePath ./metadata.json
+
+      - uses: EndBug/add-and-commit@v9
+        name: push metadata changes
+        with:
+          message: 'chore: update metadata'
+          add: 'meatdata.json'
