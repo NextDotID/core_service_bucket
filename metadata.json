@@ -1,0 +1,67 @@
+{
+  "auth_service": {
+    "title": "Auth Service",
+    "icon": "https://docs.next.id/img/nextid-logo.svg",
+    "description": "Self-hosted Next.ID Authentication & Authorization service.",
+    "homepage": "https://docs.next.id/",
+    "license": "MIT",
+    "permissions": [
+      "subdomain",
+      "web"
+    ],
+    "checkver": {
+      "type": "docker_hub",
+      "url": "https://hub.docker.com/r/hmqgg/auth_server/tags"
+    },
+    "latest": {
+      "version": "1.0.0",
+      "date": 1629782400,
+      "arch": {
+        "amd64": {
+          "url": "https://github.com/nextdotid/core_service_bucket/raw/0713f251964cc157856b95c4c427dca904b76a48/bucket/auth_service/amd64/docker-compose.yml"
+        },
+        "arm64": {
+          "url": "https://github.com/nextdotid/core_service_bucket/raw/0713f251964cc157856b95c4c427dca904b76a48/bucket/auth_service/arm64/docker-compose.yml"
+        }
+      },
+      "compat": {
+        "minimum": "1.0.0",
+        "compatible": "1.2.0"
+      }
+    }
+  },
+  "mastodon": {
+    "title": "Mastodon",
+    "icon": "https://joinmastodon.org/logos/logo-purple.svg",
+    "description": "Self-hosted mastodon instance, powered by Bitnami.",
+    "homepage": "https://joinmastodon.org/",
+    "license": "AGPL-3.0-or-later",
+    "permissions": [
+      "write_local_storage",
+      "subdomain",
+      "web"
+    ],
+    "checkver": {
+      "type": "docker_hub",
+      "url": "https://hub.docker.com/r/bitnami/mastodon/tags"
+    },
+    "latest": {
+      "version": "4.1.1",
+      "date": 1631712000,
+      "arch": {
+        "amd64": {
+          "url": "https://github.com/nextdotid/core_service_bucket/raw/74e6940ba72c55d5db94ff0c907d53837947cd28/bucket/mastodon/amd64/docker-compose.yml",
+          "hash": "15DF3857FFF2440C748A9A471B4098907C819A42A01FC30872FB7E6848307B3B"
+        },
+        "arm64": {
+          "url": "https://github.com/nextdotid/core_service_bucket/raw/74e6940ba72c55d5db94ff0c907d53837947cd28/bucket/mastodon/arm64/docker-compose.yml",
+          "hash": "15DF3857FFF2440C748A9A471B4098907C819A42A01FC30872FB7E6848307B3B"
+        }
+      },
+      "compat": {
+        "minimum": "1.0.0",
+        "compatible": "1.2.0"
+      }
+    }
+  }
+}
