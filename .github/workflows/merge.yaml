@@ -1,0 +1,22 @@
+name: Merge metadata
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'NextDotId'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Merge
+        shell: pwsh
+        run: |
+          $dictionary = [ordered]@{}
+          $manifests = Get-ChildItem -File ./manifest/*.json |
+            % { Get-Content -Raw $_ | ConvertFrom-Json | Add-Member -NotePropertyName filename -NotePropertyValue $_.BaseName -PassThru } |
+            % { $latest = $_.versions | Sort-Object -Descending -Property version | Select-Object -First 1; 
+              $_ | Add-Member -NotePropertyName latest -NotePropertyValue $latest -PassThru | Select-Object -Property * -ExcludeProperty versions }
+          $manifests | % { $dictionary[$_.filename] = $_ | Select-Object -Property * -ExcludeProperty filename }
+          $dictionary | ConvertTo-Json -Depth 10 | Out-File -FilePath ./metadata.json
