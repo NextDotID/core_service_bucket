@@ -2,6 +2,8 @@ name: Merge metadata
 
 on:
   push:
+    paths:
+      - 'manifest/**'
   workflow_dispatch:
 
 jobs:
